@@ -30,12 +30,10 @@ const App = () => {
     try {
       await removeTodo(id);
       fetchTodos();
-
     } catch (error) {
       setError(error);
     }
   };
-
 
   // Create a handleSubmit() function to add new to-do list
   const handleSubmit = async (e) => {
@@ -43,20 +41,19 @@ const App = () => {
     setError(); // Resetea cualquier error previo
     const data = new FormData(e.currentTarget); // Crea un objeto FormData con los datos del formulario
     try {
-      data.set('description', todo.description); // Establece la descripción del todo
-      data.set('created_at', `${new Date().toISOString()}`); // Establece la fecha de creación
+      data.set("description", todo.description); // Establece la descripción del todo
+      data.set("created_at", `${new Date().toISOString()}`); // Establece la fecha de creación
       const newTodo = await createTodo(data); // Llama a createTodo para enviar los datos
       if (newTodo.error) {
         setError(newTodo.error); // Maneja el error si existe
       } else {
-        setTodo({ description: '' }); // Resetea el estado del todo
+        setTodo({ description: "" }); // Resetea el estado del todo
         fetchTodos(); // Actualiza la lista de tareas
       }
     } catch (err) {
       setError(err); // Maneja cualquier error inesperado
     }
   };
-  
 
   useEffect(() => {
     // Initialize todoList
