@@ -57,3 +57,5 @@ Maneja la lógica de negocio y las solicitudes HTTP.
 Importa funciones del modelo para interactuar con la base de datos.
 Define funciones para crear, leer, y eliminar tareas, y las exporta para ser usadas en las rutas.
 /*
+
+/*exports.removeTodo = async (req, res) => { esta sintaxis de export se usa en back-end (sistema de modulos de CommonJs, estandar en NodeJs)*/
